@@ -1,0 +1,303 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<style type="text/css">
+		body {
+			    background-image: url("FILE/image/background_main.jpg");
+			    background-repeat: no-repeat;
+			    background-attachment: fixed;
+			    background-size: cover;
+			    width:auto;
+			}
+			.button {
+			    color:rgba(255,255,255,.7);
+				background-color:rgba(255,255,255,.08);
+				border-color:rgba(255,255,255,.2);
+			    border: 2px solid rgba(255,255,255,.2);
+			    padding: 8px 14px;
+			    text-align: center;
+		  	    text-decoration: none;
+			    display: inline-block;
+			    font-size: 18px;
+				font-family:"Microsoft YaHei UI Light";
+			    margin: 4px 2px;
+			    -webkit-transition-duration: 0.4s; /* Safari */
+				-moz-transition-duration: 0.4s; /* Mozilla */
+			    transition-duration: 0.4s;
+			    cursor: pointer;
+				border-radius: 8px;
+				-webkit-border-radius: 8px; /* Safari */
+				-moz-border-radius: 8px; /* Mozilia */
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+				backdrop-filter: blur(5px);
+			}
+			
+			.button:hover {
+			color:rgba(255,255,255,.8);
+			text-decoration:none;
+			background-color:rgba(255,255,255,.2);
+			border-color:rgba(255,255,255,.3)
+			}
+				
+			.buttonlight{
+				position:absolute;
+				right:1;
+				height:10;
+				background-image:url("FILE/THEME/light_mode.png");
+				background-repeat: no-repeat;
+			  	background-attachment: fixed;
+			  	background-size: cover;
+			}
+			
+			.buttondark{
+				position:absolute;
+				right:1;
+				height:10;
+				background-image:url("FILE/THEME/dark_mode.png");
+				background-repeat: no-repeat;
+			  	background-attachment: fixed;
+			  	background-size: cover;
+			}
+			.end{
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				font-size: 14px;
+			}
+			.aero{
+				color:rgba(255,255,255,.7);
+				z-index:2;
+				font-size: 16px;
+		    	width:100px;
+		    	height:45px;
+		    	margin:5 0 0 8;
+		    	padding:0;
+		    	border:1px solid rgba(0,0,0,0.5);
+		    	border-radius:4px 8px 4px 2px;
+		    	background:rgba(0,0,0,0.25);
+		    	box-shadow:0 2px 6px rgba(0,0,0,0.5),inset 0 1px rgba(255,255,255,0.3),inset 0 10px rgba(255,255,255,0.2),inset 0 -15px 30px rgba(0,0,0,0.3);
+		    	-o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+		   		-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+		   		-moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+		
+			}
+				.downs{
+				color:rgba(255,255,255,.7);
+				background-color:rgba(255,255,255,.08);
+				border-color:rgba(255,255,255,.2);
+			    border: 2px solid rgba(255,255,255,.2);
+				position:absolute;
+				right:0;
+				height:10;
+				padding: 8px 14px;
+				margin: 4px 2px;
+				font-family:"Microsoft YaHei UI Light";
+				-webkit-transition-duration: 0.4s; /* Safari */
+				-moz-transition-duration: 0.4s; /* Mozilla */
+			    transition-duration: 0.4s;
+				border-radius: 6px;
+				-webkit-border-radius: 6px; /* Safari */
+				-moz-border-radius: 6px; /* Mozilia */
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+			.downs:hover{
+				color:rgba(255,255,255,.8);
+				text-decoration:none;
+				background-color:rgba(255,255,255,.2);
+				border-color:rgba(255,255,255,.3)
+			}
+		#all{
+				position: absolute;
+				left:50%;
+				top:50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+			#hrs,#min,#sec{
+				height: 100px;
+				width: 100px;
+				background-color: gray;
+				float: left;
+				font-size: 66px;
+				text-align: center;
+				line-height: 100px;
+			}
+			#colon{
+				height: 100px;
+				width: 20px;
+				background-color: transparent;
+				float: left;
+				
+				font-size:100px;
+				line-height:80px;
+				transform: translate(-2px);
+			}
+	</style>
+<script type="text/javascript">
+			function timeClock(){
+				newDate = new Date();
+				hour = newDate.getHours();
+				if (hour < 10){
+					hour = "0" + hour;
+				}
+				minu = newDate.getMinutes();
+				if (minu < 10){
+					minu = "0" + minu;
+				}
+				seco =newDate.getSeconds();
+				if (seco < 10){
+					seco = "0" + seco;
+				}
+				document.getElementById("hrs").innerHTML = hour;
+				document.getElementById("min").innerHTML = minu;
+				document.getElementById("sec").innerHTML = seco;
+			}
+			setInterval(timeClock , 1000)
+		</script>
+	<head>
+		<meta charset="UTF-8">
+		<title>13G06_a01Test</title>
+		<p>
+			<script language="javascript">
+			function mbar(sobj) {
+				var docurl = sobj.options[sobj.selectedIndex].value;
+				if(docurl != "") {
+					open(docurl, '_blank');
+					sobj.selectedIndex = 0;
+					sobj.blur();
+				}
+			}
+			</script>
+				<select onChange="mbar(this)"name="select">
+					<option class="">selectoption</option>
+					<option class="" value="1">1</option>
+					<option class="" value="2">2</option>
+				</select>
+<!--
+			<a href="https://www.bilibili.com/">
+				<input type="button"
+					   class="button"
+					   value="跳转-bilibili.com">
+			</a>
+			<a href="https://www.baidu.com/">
+				<input type="button"
+					   class="button"
+					   value="跳转-baidu.com">
+			</a>
+-->
+			<a href="ERROR.HTML">
+				<input type="button"
+					   class="button"
+					   value="不要点我">
+			</a>
+			<a href="COLOURS.HTML">
+				<input type="button"
+					   class="button"
+					   value="颜色列表">
+			</a>
+			<a href="about.HTML">
+				<input type="button"
+					   class="button"
+					   value="关于我们">
+			</a>
+			<a href="softs.HTML">
+				<input type="button"
+					   class="downs"
+					   value="下载">
+			</a>
+		</p>
+		<hr>
+	</head>
+	<h1>INDEX.HTML</h1>
+	<br>
+	<br>
+	<br>
+	<div id="all">
+			<div id="hrs">
+				
+			</div>
+			<div id="colon">
+				:
+			</div>
+			<div id="min">
+				
+			</div>
+			<div id="colon">
+				:
+			</div>
+			<div id="sec">
+				
+			</div>
+		</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!--
+	<a href="not-yet.html"> 
+		<img src="FILE/image/STL1.png" width="auto">
+	</a>
+-->
+	<div align="center">
+		<p>Copyright 2023 wfe2025,all rights reserved</p>
+	</div>
+</html>
